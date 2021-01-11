@@ -10,6 +10,7 @@ The plugin will work once that you have configured and installed with your own c
 
 ###### vimplug
 	call plug#begin('~/.vim/plugged')
+	Plug 'skywind3000/asyncrun.vim'
 	Plug 'carlos-cabgj/autodeploy.vim'
 	call plug#end()
 
