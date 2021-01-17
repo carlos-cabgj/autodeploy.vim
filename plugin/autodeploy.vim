@@ -12,6 +12,10 @@ function s:onSaveAutoDeploy(fileFull, fileName)
 
         let config = onefunctions#readConfig(pathSearch[0])
 
+        if config['autodeploy']['status'] == '' || config['autodeploy']['status'] == 0
+            return ''
+        endif
+
         if a:fileFull == ''
             let basePathServer   = substitute(expand('%:p:h').g:sep, escape(pathSearch[1], g:OneIdeVimEspaceRegex), "", "g")
             let basePathServer   = substitute(basePathServer, config['autodeploy']["pathLocal"], "", "g")
@@ -40,18 +44,12 @@ endfunction
 
 function! s:uploadWithPscp(config, pathFileServer, pathFolderServer, pathLocal)
 
-    if has_key(a:config['autodeploy'], 'plink') == 0
-        || a:config['autodeploy']['plink'] == ''
-        || filereadable(a:config['autodeploy']['plink']) == 0
-
+    if has_key(a:config['autodeploy'], 'plink') == 0 || a:config['autodeploy']['plink'] == '' || filereadable(a:config['autodeploy']['plink']) == 0
         :echoerr onefunctions#i18n('deploy.plinkNotFound')
         return ''
     endif
 
-    if has_key(a:config['autodeploy'], 'pscp') == 0
-        || a:config['autodeploy']['pscp'] == ''
-        || filereadable(a:config['autodeploy']['pscp']) == 0
-
+    if has_key(a:config['autodeploy'], 'pscp') == 0 || a:config['autodeploy']['pscp'] == '' || filereadable(a:config['autodeploy']['pscp']) == 0
         :echoerr onefunctions#i18n('deploy.pscpNotFound')
         return ''
     endif
