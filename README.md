@@ -17,22 +17,23 @@ The plugin will work once that you have configured and installed with your own c
 
 [TOC]
 
-#### Put in your .one-project this config
+#### Put in your .one-project this config ( thak will look like that ) 
 ###### Make shure that you have a .one-project in the root folder of your project
-
-	"autodeploy": {
-        "status"     : 0,
-        "program"    : 'PSCPPLINK',
-        "type"       : "sftp",
-        "host"       : "",
-        "port"       : "22",
-        "user"       : "",
-        "pass"       : "",
-        "pathServer" : "/u02/php/",
-        "pathLocal"  : "/",
-        "plink"      : 'c:\workspace\plink.exe',
-        "pscp"       : 'c:\workspace\pscp.exe'
-    }
+	{
+		"autodeploy": {
+			"status"     : 0,
+			"program"    : 'PSCPPLINK',
+			"type"       : "sftp",
+			"host"       : "",
+			"port"       : "22",
+			"user"       : "",
+			"pass"       : "",
+			"pathServer" : "/u02/php/",
+			"pathLocal"  : "/",
+			"plink"      : 'c:\workspace\plink.exe',
+			"pscp"       : 'c:\workspace\pscp.exe'
+		}
+	}
 
 #### Configuration
 
